@@ -11,10 +11,10 @@ onBeforeMount(async () => {
 </script>
 
 <template>
-  <header class="row-start-1 row-end-1 h-fit">
+  <header class="row-start-1 row-end-1 m-2 h-fit rounded-lg shadow-lg">
     <Header></Header>
   </header>
-  <main class="row-start-2 mx-2 mt-1 grid gap-1">
+  <main class="row-start-2 mx-2">
     <RouterView v-slot="{ Component }">
       <template v-if="Component">
         <KeepAlive>
