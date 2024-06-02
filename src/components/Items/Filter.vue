@@ -27,7 +27,7 @@ const markClicked = async (id: number) => {
 <template>
   <div
     id="filter"
-    class="relative mx-auto flex w-full flex-col justify-center rounded-lg p-2"
+    class="relative mx-auto flex w-full flex-col justify-center rounded-lg p-4"
   >
     <div id="categories" class="flex justify-center gap-4">
       <button
