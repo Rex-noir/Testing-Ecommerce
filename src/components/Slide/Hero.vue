@@ -8,7 +8,7 @@
         <span class="w-fit rounded-full bg-amber-200 p-2"
           >#1 Your trusted ecommerce</span
         >
-        <h1 class="text-7xl">E-Commerce</h1>
+        <h1 class="text-6xl">E-Commerce</h1>
         <p class="p-2 text-sm">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione nemo
           esse repudiandae, dolores laborum, corrupti deserunt consectetur
@@ -17,12 +17,12 @@
         </p>
         <div class="flex gap-3 p-2">
           <button
-            class="rounded-xl bg-red-600 p-2 text-white shadow-md shadow-slate-600 hover:bg-slate-800"
+            class="rounded-xl bg-red-600 p-2 text-white shadow-md shadow-slate-600 transition-all duration-200 hover:scale-95 hover:bg-slate-800 active:scale-105"
           >
             Sell your products
           </button>
           <button
-            class="rounded-xl border-2 border-slate-900 p-2 hover:bg-slate-800 hover:text-white"
+            class="rounded-xl border-2 border-slate-900 p-2 transition-all duration-200 hover:scale-95 hover:bg-slate-800 hover:text-white active:scale-105"
           >
             Explore now!
           </button>
@@ -75,13 +75,17 @@
         />
         <span class="text-sm">Buy more and save more!</span>
       </div>
-      <div class="col-start-2 row-span-2 row-start-1 h-full p-3 text-center">
+      <div
+        class="relative col-start-2 row-span-2 row-start-1 h-full p-3 text-center"
+      >
         <img
           src="../../assets/undraw_transfer_money_re_6o1h.svg"
-          class="mx-auto h-5/6 w-5/6"
+          class="mx-auto h-full w-5/6"
           alt="hero image"
         />
-        <span class="text-sm">No need to worry about paymet methods!</span>
+        <span class="absolute bottom-3 left-0 w-full"
+          >No need to worry about paymet methods!</span
+        >
       </div>
     </div>
   </div>
