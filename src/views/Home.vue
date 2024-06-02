@@ -10,15 +10,15 @@ let data = ref(await FetchData.getProducts());
 const items = computed(() => data.value);
 </script>
 <template>
-  <div class="grid auto-rows-auto gap-6">
+  <div class="grid auto-rows-auto gap-3">
     <div id="carousel" class="row-start-1 w-full p-3">
       <Hero class="my-auto"></Hero>
     </div>
-    <div id="container" class="row-start-2">
+    <div id="container" class="row-start-2 flex flex-col gap-3 rounded-lg">
       <Filter v-model="data"></Filter>
       <div
         id="list-container"
-        class="grid auto-cols-fr auto-rows-fr grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3"
+        class="grid auto-rows-fr grid-cols-[repeat(auto-fill,_300px)] place-content-center gap-5 rounded-lg bg-gray-200 py-10 shadow-lg"
         v-if="items"
       >
         <Item v-for="item in items.json" :data="item" :key="item.id"></Item>
