@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import Filter from "../components/Items/Filter.vue";
-import Slide from "../components/Slide/Slide.vue";
 import FetchData from "../utils/fetchData";
 import Item from "../components/Items/Item.vue";
 import { computed, ref } from "vue";
+import Hero from "../components/Slide/Hero.vue";
 
 let data = ref(await FetchData.getProducts());
 
@@ -14,7 +14,7 @@ const items = computed(() => data.value);
     id="carousel"
     class="row-start-2 grid border-b-4 border-b-green-600 pb-4"
   >
-    <Slide class="col-start-1 my-auto"></Slide>
+    <Hero class="col-start-1 my-auto"></Hero>
   </div>
 
   <div id="container" class="row-start-3">
