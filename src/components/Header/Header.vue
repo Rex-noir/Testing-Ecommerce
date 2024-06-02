@@ -35,7 +35,7 @@ onUnmounted(() => {
 </script>
 <template>
   <div
-    class="mx-auto grid w-full grid-cols-[auto_auto_auto] gap-3 p-4 text-slate-900 shadow-sm shadow-slate-500 md:grid-cols-3"
+    class="mx-auto grid w-full grid-cols-[auto_auto_auto] gap-3 p-4 text-slate-900 md:grid-cols-3"
   >
     <div id="dropdown" class="flex items-center md:hidden">
       <button @click="toggleNavigation">
