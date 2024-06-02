@@ -18,42 +18,23 @@ watch([titleRef, parentRef], ([newTitle, newParent]) => {
   <div
     id="item"
     ref="parentRef"
-    class="grid grid-cols-5 grid-rows-[auto_auto] place-items-center gap-3 overflow-hidden rounded-lg border-t-2 border-slate-400 p-2 shadow-2xl hover:shadow-slate-500"
+    class="h-[350 px] grid border-collapse grid-rows-9 place-items-center gap-1 overflow-hidden rounded-xl border-2 border-slate-400 bg-slate-100 shadow-md"
   >
     <span
       aria-label="Item title"
-      class="col-span-6 col-start-1 mx-auto overflow-auto whitespace-nowrap"
+      class="row-start-1 row-end-2 mx-auto overflow-auto whitespace-nowrap p-2 text-sm shadow-sm"
       :class="{ 'animate-rotate': status.animateTitle }"
       ref="titleRef"
       >{{ data.title }}
     </span>
     <img
       :src="data.images[0]"
-      class="col-span-3 row-start-2 overflow-auto rounded-lg"
+      class="row-start-2 row-end-8 w-5/6 rounded-lg shadow-lg"
     />
-    <div
-      id="details"
-      class="col-span-3 col-start-4 flex flex-col items-center justify-center gap-3 overflow-clip text-sm"
+    <button
+      class="duration-400 row-start-8 row-end-10 rounded-full border-2 border-slate-400 bg-gray-300 p-1 px-2 transition-all ease-in hover:bg-blue-800 hover:text-slate-100"
     >
-      <p class="overflow-hidden">Price : ${{ data.price }}</p>
-      <p class="text-xs">Category : {{ data.category.name }}</p>
-      <div class="flex w-full items-center justify-between gap-1">
-        <button
-          class="rounded-lg bg-slate-600 p-2 shadow-xl outline-none transition-all duration-500 hover:bg-slate-950"
-        >
-          <img src="/src/assets/cart.svg" alt="Add to cart" />
-        </button>
-        <button
-          class="rounded-lg bg-slate-600 p-2 shadow-xl outline-none transition-all duration-500 hover:bg-slate-950"
-        >
-          <img src="/src/assets/shop.svg" alt="Buy" />
-        </button>
-      </div>
-      <button
-        class="rounded-lg bg-slate-800 p-2 text-white shadow-xl transition-all duration-500 hover:bg-amber-200 hover:text-black active:rotate-3 active:scale-105 active:transform-gpu active:outline-none"
-      >
-        Details
-      </button>
-    </div>
+      BUY ${{ data.price }}
+    </button>
   </div>
 </template>
