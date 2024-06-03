@@ -49,18 +49,18 @@ onMounted(async () => {
     class="mx-auto my-auto grid place-content-center p-2 md:h-full"
   >
     <div
-      class="grid grid-rows-2 place-content-center place-items-center gap-7 md:grid-cols-2 md:grid-rows-1"
+      class="grid grid-rows-2 place-content-center place-items-center gap-2 md:grid-cols-12 md:grid-rows-1"
     >
       <div
-        class="row-start-1 mx-auto grid place-content-center p-2 md:col-start-1 md:grid-rows-1"
+        class="row-start-1 mx-auto grid place-content-center p-2 md:col-start-1 md:col-end-6 md:grid-rows-1 lg:w-4/5"
       >
         <img
           :src="data.images[0]"
-          class="mx-auto h-full rounded-lg shadow-md shadow-slate-200 md:size-96"
+          class="mx-auto w-full rounded-lg shadow-md shadow-slate-200"
         />
       </div>
       <div
-        class="row-start-2 flex size-full flex-col justify-center gap-3 p-1 md:col-start-2 md:row-start-1"
+        class="row-start-2 flex size-full flex-col justify-center gap-3 p-1 md:col-start-6 md:col-end-12 md:row-start-1"
       >
         <h2 class="text-lg font-bold">{{ data.title }}</h2>
         <span class="text-sm">{{ data.description }}</span>
