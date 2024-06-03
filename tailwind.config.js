@@ -6,7 +6,7 @@ export default {
   theme: {
     extend: {
       gridTemplateRows: {
-        "main-layout": " auto auto 50px",
+        "main-layout": "80px auto 50px",
       },
     },
     keyframes: {
