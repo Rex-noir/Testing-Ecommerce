@@ -12,15 +12,14 @@ const productResults = ref<Product[] | null>(null);
 const userResults = ref<User[] | null>(null);
 const loading = ref<boolean>(false);
 
-const notFound = ref<boolean>(false);
 const isError = ref<boolean>(false);
+const isProducts = ref<boolean>(true);
 
 const router = useRouter();
 
 const hideResult = () => {
   showProducts.value = false;
   showUsers.value = false;
-  notFound.value = false;
 };
 
 const updateShow = (event: Event) => {
@@ -31,7 +30,6 @@ const updateShow = (event: Event) => {
     showProducts.value = false;
   }
 };
-const isProducts = ref<boolean>(true);
 
 const search = async (query: string) => {
   try {
@@ -40,7 +38,6 @@ const search = async (query: string) => {
       searchUsers(query);
     }
   } catch (error) {
-    notFound.value = true;
     isError.value = true;
     loading.value = false;
   }
@@ -58,11 +55,9 @@ const searchUsers = async (query: string) => {
   if (filtered.length > 0) {
     userResults.value = filtered;
     showUsers.value = true;
-    notFound.value = false;
   } else {
     userResults.value = null;
     showUsers.value = false;
-    notFound.value = true;
   }
 };
 
@@ -81,7 +76,6 @@ const searchProducts = async (query: string) => {
   } else {
     productResults.value = null;
     showProducts.value = false;
-    notFound.value = true;
     loading.value = false;
   }
 };
@@ -99,7 +93,19 @@ const escClicked = (event: KeyboardEvent) => {
   if (event.key === "Escape") {
     showProducts.value = false;
     showUsers.value = false;
-    notFound.value = false;
+  }
+};
+
+const enterListener = () => {
+  window.addEventListener("keydown", enterClicked);
+};
+const removeEnterListener = () => {
+  window.removeEventListener("keydown", enterClicked);
+};
+const enterClicked = (event: KeyboardEvent) => {
+  const input = document.querySelector("#search") as HTMLInputElement;
+  if (event.key === "Enter") {
+    search(input.value);
   }
 };
 
@@ -134,6 +140,8 @@ const onClickedOutside = (e: Event) => {
         id="search"
         placeholder="Search"
         @input="updateShow"
+        @focus="enterListener"
+        @focusout="removeEnterListener"
         class="w-full rounded-md bg-slate-200 p-2 shadow-sm focus-within:outline-none"
       />
       <button
@@ -148,9 +156,6 @@ const onClickedOutside = (e: Event) => {
       </button>
     </div>
     <Loading v-if="loading" class="absolute z-50 mt-3"></Loading>
-    <div v-if="notFound" class="absolute z-50 mt-3 w-full text-center">
-      No productResults!
-    </div>
     <div
       id="productResults-container"
       v-show="showProducts || showUsers"
