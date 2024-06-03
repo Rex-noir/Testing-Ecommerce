@@ -76,16 +76,13 @@ const searchProducts = async (query: string) => {
   }
 };
 
-watch(
-  [showProducts.value, showUsers.value],
-  ([newShowProducts, newShowUsers]) => {
-    if (newShowProducts === true || newShowUsers === true) {
-      document.addEventListener("keyup", escClicked);
-    } else {
-      document.removeEventListener("keyup", escClicked);
-    }
-  },
-);
+watch([showProducts, showUsers], ([newShowProducts, newShowUsers]) => {
+  if (newShowProducts === true || newShowUsers === true) {
+    document.addEventListener("keyup", escClicked);
+  } else {
+    document.removeEventListener("keyup", escClicked);
+  }
+});
 const escClicked = (event: KeyboardEvent) => {
   if (event.key === "Escape") {
     showProducts.value = false;
@@ -120,7 +117,7 @@ const escClicked = (event: KeyboardEvent) => {
           ['bg-slate-900 text-white']: !isProducts,
           'bg-none': isProducts,
         }"
-        class="- absolute right-8 rounded-lg border-2 border-stone-900 px-2 transition-all duration-200 hover:scale-90 active:scale-105"
+        class="- absolute right-8 rounded-lg border-2 border-stone-400 px-2 transition-all duration-200 hover:scale-90 active:scale-105"
       >
         Users
       </button>
