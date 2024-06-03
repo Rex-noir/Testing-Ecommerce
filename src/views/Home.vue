@@ -18,7 +18,7 @@ const items = computed(() => data.value);
       <Filter v-model="data"></Filter>
       <div
         id="list-container"
-        class="relative grid auto-rows-fr grid-cols-[repeat(auto-fill,_300px)] place-content-center items-center gap-5 rounded-lg bg-gray-200 py-10 shadow-lg"
+        class="relative grid auto-rows-fr grid-cols-[repeat(auto-fill,_300px)] place-content-center items-center rounded-lg bg-gray-200 py-10 shadow-lg"
         v-if="items"
       >
         <Item v-for="item in items.json" :data="item" :key="item.id"></Item>
