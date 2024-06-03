@@ -64,4 +64,7 @@ export default class FetchData {
   static async getAllUsers(): Promise<User[]> {
     return (await fetch("https://api.escuelajs.co/api/v1/users")).json();
   }
+  static async getUserInfo(id: number | string): Promise<User> {
+    return (await fetch(`https://api.escuelajs.co/api/v1/users/${id}`)).json();
+  }
 }
