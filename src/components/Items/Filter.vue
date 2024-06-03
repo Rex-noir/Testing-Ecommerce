@@ -27,9 +27,12 @@ const markClicked = async (id: number) => {
 <template>
   <div
     id="filter"
-    class="relative mx-auto flex w-full flex-col justify-center rounded-lg p-4"
+    class="relative mx-auto flex w-full flex-col justify-center rounded-lg md:p-4"
   >
-    <div id="categories" class="flex justify-center gap-4">
+    <div
+      id="categories"
+      class="mx-auto grid grid-cols-2 gap-2 md:grid-cols-4 lg:grid-cols-8"
+    >
       <button
         v-for="category in categories"
         :key="category.id"

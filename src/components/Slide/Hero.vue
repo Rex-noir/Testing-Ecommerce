@@ -1,9 +1,9 @@
 <script setup lang="ts"></script>
 <template>
-  <div class="grid w-full grid-cols-2 gap-5">
+  <div class="grid w-full gap-5 md:grid-cols-2">
     <div>
       <div
-        class="flex flex-col gap-6 rounded-lg p-5 shadow-lg shadow-slate-300 hover:shadow-slate-400"
+        class="row-start-1 my-auto flex h-full flex-col gap-6 rounded-lg p-1 shadow-lg shadow-slate-300 hover:shadow-slate-400 md:p-5"
       >
         <span class="w-fit rounded-full bg-amber-200 p-2"
           >#1 Your trusted ecommerce</span
@@ -27,17 +27,10 @@
             Explore now!
           </button>
         </div>
-        <div>
-          <p class="text-sm">
-            <span class="rounded-full text-green-500">&#10003;</span>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-          </p>
-          <p class="text-sm">
-            <span class="rounded-full text-green-500">&#10003;</span>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-          </p>
-        </div>
-        <div class="mb-auto flex items-center gap-3">
+
+        <div
+          class="my-auto mb-auto grid grid-cols-2 place-content-center gap-2 text-center md:grid-cols-4"
+        >
           <span
             class="rounded-full border-2 border-slate-900 bg-emerald-400 px-2"
             >Fast</span
@@ -57,7 +50,7 @@
       </div>
     </div>
     <div
-      class="col-start-2 grid grid-cols-2 grid-rows-2 rounded-lg shadow-lg shadow-slate-300 hover:shadow-slate-400"
+      class="row-start-2 hidden grid-cols-2 grid-rows-2 rounded-lg shadow-lg shadow-slate-300 hover:shadow-slate-400 md:col-start-2 md:row-start-1 md:grid"
     >
       <div class="col-start-1 row-start-1 place-content-center p-3 text-center">
         <img

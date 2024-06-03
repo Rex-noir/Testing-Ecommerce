@@ -18,7 +18,7 @@ watch([titleRef, parentRef], ([newTitle, newParent]) => {
   <div
     id="item"
     ref="parentRef"
-    class="h-[350 px] grid border-collapse grid-rows-9 place-items-center gap-1 overflow-hidden rounded-xl border-2 border-slate-400 bg-slate-100 shadow-md"
+    class="h-[350 px] grid border-collapse grid-rows-9 place-items-center gap-1 overflow-hidden rounded-xl border-2 border-slate-300 bg-slate-100 shadow-md"
   >
     <span
       aria-label="Item title"
@@ -32,7 +32,7 @@ watch([titleRef, parentRef], ([newTitle, newParent]) => {
       class="row-start-2 row-end-8 w-5/6 rounded-lg shadow-lg"
     />
     <button
-      class="duration-400 row-start-8 row-end-10 rounded-full border-2 border-slate-400 bg-gray-300 p-1 px-2 transition-all ease-in hover:bg-blue-800 hover:text-slate-100"
+      class="duration-400 row-start-8 row-end-10 rounded-xl border-2 border-slate-400 bg-gray-300 p-1 px-2 transition-all ease-in hover:scale-95 hover:bg-blue-800 hover:text-slate-100 active:scale-105"
     >
       BUY ${{ data.price }}
     </button>

@@ -11,7 +11,7 @@ const items = computed(() => data.value);
 </script>
 <template>
   <div class="grid auto-rows-auto gap-3">
-    <div id="carousel" class="row-start-1 w-full p-3">
+    <div id="carousel" class="row-start-1 w-full">
       <Hero class="my-auto"></Hero>
     </div>
     <div id="container" class="row-start-2 flex flex-col gap-3 rounded-lg">
