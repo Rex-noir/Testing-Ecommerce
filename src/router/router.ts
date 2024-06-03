@@ -1,5 +1,5 @@
 import { Component } from "vue";
-import { createMemoryHistory, createRouter } from "vue-router";
+import { createRouter, createWebHistory } from "vue-router";
 import About from "../views/About.vue";
 import Home from "../views/Home.vue";
 import Authentication from "../views/Auth/Authentication.vue";
@@ -17,5 +17,5 @@ const routes: Array<Route> = [
   { path: "/profile/:id", component: PViewManager, name: "Profile" },
   { path: "/products/:id", component: ProductView, name: "Product" },
 ];
-const router = createRouter({ history: createMemoryHistory(), routes });
+const router = createRouter({ history: createWebHistory(), routes });
 export default router;
