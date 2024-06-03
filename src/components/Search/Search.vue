@@ -18,11 +18,9 @@ const isError = ref<boolean>(false);
 const router = useRouter();
 
 const hideResult = () => {
-  setTimeout(() => {
-    showProducts.value = false;
-    showUsers.value = false;
-    notFound.value = false;
-  }, 400);
+  showProducts.value = false;
+  showUsers.value = false;
+  notFound.value = false;
 };
 
 const updateShow = (event: Event) => {
@@ -105,6 +103,12 @@ const escClicked = (event: KeyboardEvent) => {
 
 const userClicked = (id: number) => {
   router.push(`/profile/${id}`);
+  hideResult();
+};
+
+const productClicked = (id: number) => {
+  router.push(`/products/${id}`);
+  hideResult();
 };
 </script>
 <template>
@@ -120,7 +124,6 @@ const userClicked = (id: number) => {
         id="search"
         placeholder="Search"
         @input="updateShow"
-        @focusout="hideResult()"
         class="w-full rounded-md bg-slate-200 p-2 shadow-sm focus-within:outline-none"
       />
       <button
@@ -147,6 +150,7 @@ const userClicked = (id: number) => {
         <button
           v-for="product in productResults"
           v-if="showProducts"
+          @click="productClicked(product.id)"
           class="w-full rounded-sm p-2 text-left hover:bg-slate-50 hover:text-black"
         >
           {{ product.title }}
