@@ -59,7 +59,7 @@ onMounted(() => {
       </div>
     </div>
     <div
-      class="relative row-start-2 mx-auto h-[350px] w-3/4 rounded-lg p-1 text-center shadow-lg shadow-slate-300 hover:shadow-slate-400 md:col-start-2 md:row-start-1"
+      class="relative row-start-2 mx-auto my-auto h-[350px] w-3/4 rounded-lg p-1 text-center shadow-lg shadow-slate-300 hover:shadow-slate-400 md:col-start-2 md:row-start-1"
     >
       <Transition enter-active-class="scale-0" leave-active-class="scale-0">
         <img
