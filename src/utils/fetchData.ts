@@ -20,7 +20,7 @@ export default class FetchData {
   }
 
   static async getProducts(
-    id?: number,
+    id?: string,
     filter?: {
       title?: string;
       price?: number;

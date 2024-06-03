@@ -19,7 +19,7 @@ describe("Get products", () => {
   });
 
   test("Get products by id", async () => {
-    const data = await FetchData.getProducts(4);
+    const data = await FetchData.getProducts("4");
     console.log(data);
   });
 
