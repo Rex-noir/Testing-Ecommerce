@@ -3,6 +3,7 @@ import { ref, watch } from "vue";
 import FetchData from "../../utils/fetchData";
 import { Product, User } from "../../interfaces";
 import Loading from "../Loading/Loading.vue";
+import { useRouter } from "vue-router";
 
 const showProducts = ref<boolean>(false);
 const showUsers = ref<boolean>(false);
@@ -13,6 +14,16 @@ const loading = ref<boolean>(false);
 
 const notFound = ref<boolean>(false);
 const isError = ref<boolean>(false);
+
+const router = useRouter();
+
+const hideResult = () => {
+  setTimeout(() => {
+    showProducts.value = false;
+    showUsers.value = false;
+    notFound.value = false;
+  }, 400);
+};
 
 const updateShow = (event: Event) => {
   const input = event.target as HTMLInputElement;
@@ -49,6 +60,7 @@ const searchUsers = async (query: string) => {
   if (filtered.length > 0) {
     userResults.value = filtered;
     showUsers.value = true;
+    notFound.value = false;
   } else {
     userResults.value = null;
     showUsers.value = false;
@@ -90,6 +102,10 @@ const escClicked = (event: KeyboardEvent) => {
     notFound.value = false;
   }
 };
+
+const userClicked = (id: number) => {
+  router.push(`/profile/${id}`);
+};
 </script>
 <template>
   <div class="relative mx-auto w-full">
@@ -104,11 +120,7 @@ const escClicked = (event: KeyboardEvent) => {
         id="search"
         placeholder="Search"
         @input="updateShow"
-        @focusout="
-          showProducts = false;
-          notFound = false;
-          showUsers = false;
-        "
+        @focusout="hideResult()"
         class="w-full rounded-md bg-slate-200 p-2 shadow-sm focus-within:outline-none"
       />
       <button
@@ -140,11 +152,12 @@ const escClicked = (event: KeyboardEvent) => {
           {{ product.title }}
         </button>
         <button
-          v-for="product in userResults"
+          v-for="user in userResults"
           v-if="showUsers"
+          @click="userClicked(user.id)"
           class="w-full rounded-sm p-2 text-left hover:bg-slate-50 hover:text-black"
         >
-          {{ product.name }}
+          {{ user.name }}
         </button>
       </div>
     </div>
