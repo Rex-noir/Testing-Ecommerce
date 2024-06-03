@@ -15,7 +15,6 @@ const items = computed(() => data.value);
       <Hero class="my-auto"></Hero>
     </div>
     <div id="container" class="row-start-2 flex flex-col gap-3 rounded-lg">
-      <p class="text-center font-bold">Categories</p>
       <Filter v-model="data"></Filter>
       <div
         id="list-container"
