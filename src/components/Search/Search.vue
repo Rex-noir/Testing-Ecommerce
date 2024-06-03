@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, watch } from "vue";
+import { onMounted, onUnmounted, ref, watch } from "vue";
 import FetchData from "../../utils/fetchData";
 import { Product, User } from "../../interfaces";
 import Loading from "../Loading/Loading.vue";
@@ -89,8 +89,10 @@ const searchProducts = async (query: string) => {
 watch([showProducts, showUsers], ([newShowProducts, newShowUsers]) => {
   if (newShowProducts === true || newShowUsers === true) {
     document.addEventListener("keyup", escClicked);
+    window.addEventListener("click", onClickedOutside);
   } else {
     document.removeEventListener("keyup", escClicked);
+    window.removeEventListener("click", onClickedOutside);
   }
 });
 const escClicked = (event: KeyboardEvent) => {
@@ -110,9 +112,17 @@ const productClicked = (id: number) => {
   router.push(`/products/${id}`);
   hideResult();
 };
+
+const onClickedOutside = (e: Event) => {
+  const target = e.target as HTMLElement;
+  const container = document.querySelector("#productResults-container");
+  if (!container?.contains(target)) {
+    hideResult();
+  }
+};
 </script>
 <template>
-  <div class="relative mx-auto w-full">
+  <div id="search-result-container-hehe" class="relative mx-auto w-full">
     <div
       v-if="showProducts || showUsers"
       class="fixed inset-0 z-10 bg-black opacity-50"
