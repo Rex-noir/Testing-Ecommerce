@@ -27,14 +27,19 @@ const markClicked = async (id: number) => {
 <template>
   <div
     id="filter"
-    class="relative mx-auto flex w-full flex-col justify-center rounded-lg md:p-4"
+    class="relative mx-auto flex w-full flex-col justify-center gap-2 rounded-lg md:p-2"
   >
-    <div id="categories" class="mx-auto">
+    <p class="text-center font-bold">Categories</p>
+
+    <div
+      id="categories"
+      class="grid grid-cols-[repeat(auto-fill,_150px)] place-content-center gap-y-1"
+    >
       <button
         v-for="category in categories"
         :key="category.id"
         :class="[
-          ' mr-2 mt-2 overflow-hidden rounded-full bg-slate-100 px-2 shadow-lg ring-1 ring-slate-500  transition-all duration-300 hover:bg-slate-900 hover:text-slate-50 hover:shadow-slate-800 ',
+          '  overflow-hidden  border-l-2 border-r-2 border-slate-800 bg-slate-100 p-1 shadow-lg transition-all duration-300 hover:bg-slate-900 hover:text-slate-50 hover:shadow-slate-800 ',
           { 'bg-slate-900 text-slate-200': selected === category.id },
         ]"
         @click="markClicked(category.id)"
