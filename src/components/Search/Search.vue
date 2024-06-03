@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, onUnmounted, ref, watch } from "vue";
+import { ref, watch } from "vue";
 import FetchData from "../../utils/fetchData";
 import { Product, User } from "../../interfaces";
 import Loading from "../Loading/Loading.vue";
