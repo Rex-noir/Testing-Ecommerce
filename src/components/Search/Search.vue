@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
+import { ref, watch } from "vue";
 import FetchData from "../../utils/fetchData";
 import { Product, User } from "../../interfaces";
 import Loading from "../Loading/Loading.vue";
@@ -73,6 +73,24 @@ const searchProducts = async (query: string) => {
     showProducts.value = false;
     notFound.value = true;
     loading.value = false;
+  }
+};
+
+watch(
+  [showProducts.value, showUsers.value],
+  ([newShowProducts, newShowUsers]) => {
+    if (newShowProducts === true || newShowUsers === true) {
+      document.addEventListener("keyup", escClicked);
+    } else {
+      document.removeEventListener("keyup", escClicked);
+    }
+  },
+);
+const escClicked = (event: KeyboardEvent) => {
+  if (event.key === "Escape") {
+    showProducts.value = false;
+    showUsers.value = false;
+    notFound.value = false;
   }
 };
 </script>
