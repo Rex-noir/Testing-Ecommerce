@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { reactive, ref, watch } from "vue";
+import { useRouter } from "vue-router";
 
 const props = defineProps(["data"]);
 const data = props.data;
+const router = useRouter();
 
 const titleRef = ref<HTMLElement | null>(null);
 const parentRef = ref<HTMLElement | null>(null);
@@ -13,6 +15,10 @@ watch([titleRef, parentRef], ([newTitle, newParent]) => {
     status.animateTitle = newTitle.scrollWidth > newParent.clientWidth;
   }
 });
+
+const buyClicked = (id: number) => {
+  router.push(`/products/${id}`);
+};
 </script>
 <template>
   <div
@@ -32,6 +38,7 @@ watch([titleRef, parentRef], ([newTitle, newParent]) => {
       class="row-start-2 row-end-8 w-5/6 rounded-lg shadow-lg"
     />
     <button
+      @click="buyClicked(data.id)"
       class="duration-400 row-start-8 row-end-9 h-full w-full bg-pink-300 p-1 px-2 transition-all ease-in hover:bg-blue-800 hover:text-slate-100 active:bg-red-700"
     >
       BUY ${{ data.price }}
