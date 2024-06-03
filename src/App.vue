@@ -18,11 +18,11 @@ onBeforeMount(async () => {
     <Header></Header>
   </header>
   <main class="row-start-2 mx-2">
-    <RouterView v-slot="{ Component }" :key="route.fullPath">
+    <RouterView v-slot="{ Component }">
       <template v-if="Component">
         <KeepAlive>
           <Suspense>
-            <component :is="Component"></component>
+            <component :is="Component" :key="route.fullPath"></component>
             <template #fallback> <Loading></Loading> </template>
           </Suspense>
         </KeepAlive>
