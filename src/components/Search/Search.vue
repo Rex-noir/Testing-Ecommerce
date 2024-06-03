@@ -117,7 +117,7 @@ const escClicked = (event: KeyboardEvent) => {
           ['bg-slate-900 text-white']: !isProducts,
           'bg-none': isProducts,
         }"
-        class="- absolute right-8 rounded-lg border-2 border-stone-400 px-2 transition-all duration-200 hover:scale-90 active:scale-105"
+        class="absolute right-8 rounded-lg border-2 border-stone-400 px-2 transition-all duration-200 hover:scale-90 active:scale-105"
       >
         Users
       </button>
@@ -129,7 +129,7 @@ const escClicked = (event: KeyboardEvent) => {
     <div
       id="productResults-container"
       v-show="showProducts || showUsers"
-      class="absolute z-30 row-start-2 mt-2 flex w-full flex-col gap-2 overflow-y-auto rounded-md bg-slate-900 p-2 text-slate-50 shadow-sm backdrop-brightness-50"
+      class="absolute z-30 row-start-2 mt-2 flex max-h-screen w-full flex-col gap-2 overflow-y-auto rounded-md bg-slate-900 p-2 text-slate-50 shadow-sm backdrop-brightness-50"
     >
       <div>
         <button
