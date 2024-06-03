@@ -70,7 +70,7 @@ const closeDrawer = () => {
     <ul
       class="row-start-2 mt-4 flex flex-col items-center gap-5 border-t-2 p-2"
     >
-      <li @click="closeDrawer" v-if="user.loggedIn">
+      <li @click="closeDrawer">
         <RouterLink
           to="/"
           active-class="text-amber-700"
