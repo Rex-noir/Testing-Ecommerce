@@ -3,6 +3,9 @@ import { onBeforeMount } from "vue";
 import Header from "./components/Header/Header.vue";
 import Loading from "./components/Loading/Loading.vue";
 import { useUserInfo } from "./stores/user";
+import { useRoute } from "vue-router";
+
+const route = useRoute();
 
 onBeforeMount(async () => {
   const user = useUserInfo();
@@ -15,7 +18,7 @@ onBeforeMount(async () => {
     <Header></Header>
   </header>
   <main class="row-start-2 mx-2">
-    <RouterView v-slot="{ Component }">
+    <RouterView v-slot="{ Component }" :key="route.fullPath">
       <template v-if="Component">
         <KeepAlive>
           <Suspense>
