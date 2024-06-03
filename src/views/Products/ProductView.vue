@@ -46,7 +46,7 @@ onMounted(async () => {
   <div class="size-full" v-if="errorFound">Error fetching data.</div>
   <div
     v-if="data"
-    class="mx-auto my-auto grid place-content-center p-2 shadow-lg shadow-slate-400 md:h-full"
+    class="mx-auto my-auto grid place-content-center p-2 md:h-full"
   >
     <div
       class="grid grid-rows-2 place-content-center place-items-center gap-7 md:grid-cols-2 md:grid-rows-1"
