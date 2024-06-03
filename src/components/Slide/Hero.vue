@@ -1,4 +1,14 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const slideUP = () => {
+  const targetElement = document.querySelector("#list-container");
+
+  if (targetElement) {
+    targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
+  } else {
+    window.scroll({ top: 0, behavior: "smooth" });
+  }
+};
+</script>
 <template>
   <div class="grid w-full gap-5 md:grid-cols-2">
     <div>
@@ -9,7 +19,7 @@
           >#1 Your trusted ecommerce</span
         >
         <h1 class="text-6xl">E-Commerce</h1>
-        <p class="p-2 text-sm">
+        <p class="p-2 text-justify text-sm">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione nemo
           esse repudiandae, dolores laborum, corrupti deserunt consectetur
           perferendis incidunt hic facilis cumque distinctio eligendi
@@ -22,6 +32,7 @@
             Sell your products
           </button>
           <button
+            @click="slideUP"
             class="rounded-xl border-2 border-slate-900 p-2 transition-all duration-200 hover:scale-95 hover:bg-slate-800 hover:text-white active:scale-105"
           >
             Explore now!
