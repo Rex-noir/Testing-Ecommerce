@@ -19,5 +19,8 @@ const routes: Array<Route> = [
   { path: "/products/:id", component: ProductView, name: "Product" },
   { path: "/products/sell", component: Sell, name: "Sell" },
 ];
-const router = createRouter({ history: createWebHistory(), routes });
+const router = createRouter({
+  history: createWebHistory("/Testing-Ecommerce/"),
+  routes,
+});
 export default router;
