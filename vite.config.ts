@@ -9,4 +9,5 @@ export default defineConfig({
     testTimeout: 10000,
   },
   plugins: [vue()],
+  base: "/Testing-Ecommerce/",
 });
