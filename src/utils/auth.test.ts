@@ -1,5 +1,12 @@
 import { describe, expect, test } from "vitest";
-import { authUser, createUser, updateUser, userWithSession } from "./auth";
+import {
+  authUser,
+  createCategory,
+  createProduct,
+  createUser,
+  updateUser,
+  userWithSession,
+} from "./auth";
 
 describe("Test auth", () => {
   test("With default username", async () => {
@@ -44,4 +51,39 @@ describe("Update user", () => {
     console.log(await response.json);
     expect(response.response).toBeDefined();
   });
+});
+
+describe("Create category", () => {
+  test("Just works", async () => {
+    let response;
+    try {
+      response = await createCategory({
+        name: "Mobile Phone",
+        image: "https://placeimg.com/640/480/any",
+      });
+      console.log(await response.response.json());
+    } catch (error) {
+      console.log(error);
+    }
+  });
+});
+
+test("Create a product", async () => {
+  let response;
+  try {
+    response = await createProduct({
+      title: "VJayjay",
+      price: 300,
+      categoryId: 2,
+      description: "The new vagina",
+      images: [
+        "https://i.imgur.com/qH6q2ud.jpeg",
+        "https://i.imgur.com/qH6q2ud.jpeg",
+        "https://i.imgur.com/qH6q2ud.jpeg",
+      ],
+    });
+    console.log(await response.response.json());
+  } catch (error) {
+    console.log(error);
+  }
 });

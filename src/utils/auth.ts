@@ -142,3 +142,51 @@ export async function updateUser(
     throw error;
   }
 }
+
+export async function createCategory(data: {
+  name: string;
+  image: string;
+}): Promise<{ response: Response }> {
+  try {
+    const response = await fetch(
+      "https://api.escuelajs.co/api/v1/categories/",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      },
+    );
+    if (!response.ok) {
+      throw new AuthError(response.statusText, response);
+    }
+    return { response: response };
+  } catch (error) {
+    throw error;
+  }
+}
+
+export async function createProduct(data: {
+  title: string;
+  price: number;
+  description: string;
+  categoryId: number;
+  images: string[];
+}): Promise<{ response: Response }> {
+  try {
+    const response = await fetch("https://api.escuelajs.co/api/v1/products/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    if (!response.ok) {
+      throw new AuthError(response.statusText, response);
+    }
+    return { response: response };
+  } catch (error) {
+    throw error;
+  }
+}
