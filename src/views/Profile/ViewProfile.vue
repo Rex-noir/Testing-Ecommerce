@@ -25,39 +25,36 @@ onMounted(async () => {
     <Loading></Loading>
   </div>
   <div v-if="isError" class="size-full">Error fetching data</div>
-  <div
-    v-if="userData"
-    class="md:grid-rows grid size-full grid-cols-12 grid-rows-2 place-items-center gap-3 md:grid-rows-1"
-    :key="userData?.id"
-  >
-    <div
-      class="col-span-12 col-start-1 flex h-full w-full items-center rounded-lg bg-slate-500 md:col-span-4 md:col-start-1"
-    >
+  <div v-if="userData" class="mt-[-6px] size-full">
+    <div class="relative flex flex-col items-center justify-center">
       <div
-        class="h mx-auto size-56 rounded-b-full border-2 bg-slate-400 p-3 shadow-lg shadow-slate-400 md:bg-gray-400"
+        class="relative z-20 mx-auto flex h-[200px] w-full items-center justify-center rounded-lg bg-orange-300 shadow-lg shadow-slate-500 md:h-[200px] md:w-1/2"
       >
         <img
-          :src="userData?.avatar"
-          class="h-full w-full rounded-full shadow-lg"
-          :alt="userData?.name + `'s avatar`"
+          :src="userData.avatar"
+          class="absolute top-1/2 z-30 size-48 rounded-full shadow-md shadow-slate-100"
         />
       </div>
-    </div>
-    <div
-      class="col-span-12 row-start-2 mx-auto flex w-full flex-col gap-3 md:col-start-6 md:row-start-1"
-    >
-      <p class="w-full rounded-full bg-slate-400 p-3 text-center">
-        {{ userData?.name }}
-      </p>
-      <p class="w-full rounded-full bg-slate-400 p-3 text-center">
-        {{ userData?.email }}
-      </p>
-      <p class="w-full rounded-full bg-slate-400 p-3 text-center">
-        {{ userData?.role }}
-      </p>
-      <p class="w-full rounded-full bg-slate-400 p-3 text-center">
-        ID:{{ userData?.id }}
-      </p>
+
+      <div
+        class="h-full- flex w-full flex-col items-center justify-center rounded-lg bg-slate-500 p-3 md:w-1/2"
+      >
+        <div class="h-[100px]"></div>
+        <div class="flex h-full flex-col items-center justify-center space-y-4">
+          <h2 class="text-2xl">{{ userData.name }}</h2>
+
+          <p>
+            <span>Email: </span> <span> {{ userData.email }}</span>
+          </p>
+          <p>
+            <span>Role: </span> <span> {{ userData.role }}</span>
+          </p>
+          <p>
+            <span>Id: </span> <span> {{ userData.id }}</span>
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </template>
+<style scoped></style>
