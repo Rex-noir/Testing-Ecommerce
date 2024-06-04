@@ -72,3 +72,42 @@ export function validateFUsername(username: string): {
   return { result: result, message: message };
 }
 
+export function validateProduct(
+  title: string,
+  price: string,
+  description: string,
+  images: string[],
+): { result: boolean; message: string } {
+  if (title.length === 0) {
+    return { result: false, message: "Please enter the title" };
+  } else if (price.length === 0) {
+    return { result: false, message: "Please enter the price" };
+  } else if (price.charAt(0) === "$") {
+    return {
+      result: false,
+      message: "Please remove the dollar sign at the price",
+    };
+  } else if (description.length < 10) {
+    return {
+      result: false,
+      message: "Description must be longer than 10 characters",
+    };
+  } else if (checkURL(images).result === false) {
+    return { result: false, message: checkURL(images).message };
+  }
+  return { result: true, message: "Success" };
+}
+
+function checkURL(images: string[]): { result: boolean; message: string } {
+  for (let i = 0; i < images.length; i++) {
+    const imageURL = images[i];
+    if (!/^(https?:\/\/)[^\s]+$/.test(imageURL)) {
+      // Simpler regex for basic validation
+      return {
+        result: false,
+        message: `Image  ${i + 1} is not a valid URL.`,
+      };
+    }
+  }
+  return { result: true, message: "All image URLs are valid." };
+}
