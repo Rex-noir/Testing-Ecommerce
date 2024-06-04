@@ -34,7 +34,7 @@ onMounted(() => {
         class="row-start-1 my-auto flex h-full flex-col justify-center gap-6 rounded-lg p-1 md:p-5"
       >
         <span class="w-fit rounded-full bg-amber-200 p-2"
-          >#1 Your trusted ecommerce</span
+          >#1 Your trusted E-Commerce</span
         >
         <h1 class="text-6xl">E-Commerce</h1>
         <p class="p-2 text-justify text-sm">
@@ -44,11 +44,12 @@ onMounted(() => {
           exercitationem cum libero? Perspiciatis, blanditiis sint.
         </p>
         <div class="flex gap-3 p-2">
-          <button
+          <RouterLink
+            to="/products/sell"
             class="rounded-xl bg-red-600 p-2 text-white shadow-md shadow-slate-600 transition-all duration-200 hover:scale-95 hover:bg-slate-800 active:scale-105"
           >
             Sell your products
-          </button>
+          </RouterLink>
           <button
             @click="slideUP"
             class="rounded-xl border-2 border-slate-900 p-2 transition-all duration-200 hover:scale-95 hover:bg-slate-800 hover:text-white active:scale-105"
